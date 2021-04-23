@@ -4,7 +4,6 @@ const router = express.Router()
 
 const Todo = require('../../models/todo')
 
-
 router.get('/new', (req, res) => {
   return res.render('new')
 })
