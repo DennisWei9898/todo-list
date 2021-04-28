@@ -21,7 +21,6 @@ router.get('/:id/edit', (req, res) => {
   return Todo.findById(id)
     .lean()
     .then((todo) => res.render('edit', { todo }))
-    .then(console.log(id))
     .catch(error => console.log(error))
 })
 
@@ -42,7 +41,7 @@ router.post('/', (req, res) => {
   const todos = String(req.body.name).split(',').map(todo => ({ name: todo }))
 
   Todo.insertMany(todos)
-    .then(() => {res.redirect('/') })
+    .then(() => { res.redirect('/') })
     .catch(error => console.log(error))
 })
 
